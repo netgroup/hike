@@ -1,8 +1,7 @@
 # SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
 
-XDP_TARGETS  := xdp_prog_kern
-USER_TARGETS := xdp_loader
-USER_TARGETS += xdp_stats
+XDP_TARGETS := ipv6_gen_prog_kern
+USER_TARGETS := # We do not need user targets anymore
 
 LIBBPF_DIR = ../libbpf/src/
 COMMON_DIR = ../common/

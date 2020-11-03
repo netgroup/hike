@@ -16,10 +16,12 @@ struct config {
 	bool do_unload;
 	bool reuse_maps;
 	char pin_dir[512];
-	char filename[512];
+	char filename[4096];
 	char progsec[32];
 	char src_mac[18];
 	char dest_mac[18];
+	char segs[1024];
+	__u32 color;
 	__u16 xsk_bind_flags;
 	int xsk_if_queue;
 	bool xsk_poll_mode;

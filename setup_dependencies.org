@@ -2,12 +2,13 @@
 #+TITLE: Setup dependencies
 #+OPTIONS: ^:nil
 
-Before you can start completing the steps in this XDP-tutorial, go though
-this document and install the needed software packages.
+Go though this document and install the needed software packages, if needed.
 
 * Table of Contents                                                     :TOC:
 - [[#based-on-libbpf][Based on libbpf]]
   - [[#libbpf-as-git-submodule][libbpf as git-submodule]]
+- [[#dependecies-for-python][Dependecies for Python]]
+  - [[#packages-on-debianubuntu][Packages on Debian/Ubuntu]]
 - [[#dependencies][Dependencies]]
   - [[#packages-on-fedora][Packages on Fedora]]
   - [[#packages-on-debianubuntu][Packages on Debian/Ubuntu]]
@@ -23,7 +24,7 @@ this document and install the needed software packages.
 
 * Based on libbpf
 
-This XDP-tutorial leverages [[https://github.com/libbpf/libbpf/][libbpf]] to ease development and loading of
+The implementation of SRv6 PFPLM in xdp and eBPF leverages [[https://github.com/libbpf/libbpf/][libbpf]] to ease development and loading of
 BPF-programs. The library libbpf is part of the kernel tree under
 [[https://github.com/torvalds/linux/blob/master/tools/lib/bpf/README.rst][tools/lib/bpf]], but Facebook engineers maintain a stand-alone build on
 GitHub under https://github.com/libbpf/libbpf.
@@ -36,16 +37,21 @@ This repository uses [[https://github.com/libbpf/libbpf][libbpf]] as a git-submo
 git submodule update --init
 #+end_example
 
-If you want submodules to be part of the clone, you can use this command:
-
-#+begin_example
-git clone --recurse-submodules https://github.com/xdp-project/xdp-tutorial
-#+end_example
-
 If you need to add this to your own project, you can use the command:
 
 #+begin_example
 git submodule add https://github.com/libbpf/libbpf/ libbpf
+#+end_example
+
+* Dependecies for Python
+
+** Packages on Debian/Ubuntu
+To make use of the Python user library, you need to install:
+
+#+begin_example
+ $ sudo apt install python3
+ $ sudo apt install python3-pip
+ $ sudo pip3 install cff
 #+end_example
 
 * Dependencies
@@ -120,8 +126,8 @@ distros' =/usr/include/linux= directory. In the kernel git tree you can run the
 command: =make headers_install= which will create a lot of headers files in
 directory "usr/".
 
-For now, this tutorial depends on kernel headers package provided by your
-distro. We may choose to shadow some of these later.
+For now, the SRv6 PFPLM XDP/eBPF implementation depends on kernel headers package provided by your
+distro.
 
 ** Packages on Fedora
 

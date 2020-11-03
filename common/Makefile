@@ -10,13 +10,13 @@ CFLAGS += -I$(LIBBPF_DIR)/build/usr/include/  -I../headers
 # TODO: Do we need to make libbpf from this make file too?
 
 common_params.o: common_params.c common_params.h
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -fPIC -o $@ $<
 
 common_user_bpf_xdp.o: common_user_bpf_xdp.c common_user_bpf_xdp.h
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -fPIC -o $@ $<
 
 common_libbpf.o: common_libbpf.c common_libbpf.h
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -fPIC -o $@ $<
 
 .PHONY: clean
 

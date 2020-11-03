@@ -23,9 +23,6 @@ USER_OBJ := ${USER_C:.c=.o}
 COMMON_DIR ?= ../common/
 LIBBPF_DIR ?= ../libbpf/src/
 
-COPY_LOADER ?=
-LOADER_DIR ?= $(COMMON_DIR)/../basic-solutions
-
 OBJECT_LIBBPF = $(LIBBPF_DIR)/libbpf.a
 
 # Extend if including Makefile already added some
@@ -39,7 +36,7 @@ EXTRA_DEPS +=
 # BPF-prog kern and userspace shares struct via header file:
 KERN_USER_H ?= $(wildcard common_kern_user.h)
 
-CFLAGS ?= -I$(LIBBPF_DIR)/build/usr/include/ -g
+CFLAGS ?= -I$(LIBBPF_DIR)/build/usr/include/ -g -fPIC
 CFLAGS += -I../headers/
 LDFLAGS ?= -L$(LIBBPF_DIR)
 
@@ -47,7 +44,7 @@ BPF_CFLAGS ?= -I$(LIBBPF_DIR)/build/usr/include/ -I../headers/
 
 LIBS = -l:libbpf.a -lelf $(USER_LIBS)
 
-all: llvm-check $(USER_TARGETS) $(XDP_OBJ) $(COPY_LOADER) $(COPY_STATS)
+all: llvm-check $(COMMON_H) $(USER_TARGETS) $(XDP_OBJ)
 
 .PHONY: clean $(CLANG) $(LLC)
 
@@ -55,23 +52,10 @@ clean:
 	rm -rf $(LIBBPF_DIR)/build
 	$(MAKE) -C $(LIBBPF_DIR) clean
 	$(MAKE) -C $(COMMON_DIR) clean
-	rm -f $(USER_TARGETS) $(XDP_OBJ) $(USER_OBJ) $(COPY_LOADER) $(COPY_STATS)
+	rm -f $(USER_TARGETS) $(XDP_OBJ) $(USER_OBJ)
 	rm -f *.ll
 	rm -f *~
-
-ifdef COPY_LOADER
-$(COPY_LOADER): $(LOADER_DIR)/${COPY_LOADER:=.c} $(COMMON_H)
-	make -C $(LOADER_DIR) $(COPY_LOADER)
-	cp $(LOADER_DIR)/$(COPY_LOADER) $(COPY_LOADER)
-endif
-
-ifdef COPY_STATS
-$(COPY_STATS): $(LOADER_DIR)/${COPY_STATS:=.c} $(COMMON_H)
-	make -C $(LOADER_DIR) $(COPY_STATS)
-	cp $(LOADER_DIR)/$(COPY_STATS) $(COPY_STATS)
-# Needing xdp_stats imply depending on header files:
-EXTRA_DEPS += $(COMMON_DIR)/xdp_stats_kern.h $(COMMON_DIR)/xdp_stats_kern_user.h
-endif
+	rm -f *.o
 
 # For build dependency on this file, if it gets updated
 COMMON_MK = $(COMMON_DIR)/common.mk
@@ -104,10 +88,10 @@ $(COMMON_OBJS): %.o: %.h
 	make -C $(COMMON_DIR)
 
 $(USER_TARGETS): %: %.c  $(OBJECT_LIBBPF) Makefile $(COMMON_MK) $(COMMON_OBJS) $(KERN_USER_H) $(EXTRA_DEPS)
-	$(CC) -Wall $(CFLAGS) $(LDFLAGS) -o $@ $(COMMON_OBJS) \
-	 $< $(LIBS)
+	$(CC) -Wall $(CFLAGS) $(LDFLAGS) -o $@ $(COMMON_OBJS)  \
+		$< $(LIBS)
 
-$(XDP_OBJ): %.o: %.c  Makefile $(COMMON_MK) $(KERN_USER_H) $(EXTRA_DEPS)
+$(XDP_OBJ): %.o: %.c  Makefile $(COMMON_MK) $(KERN_USER_H) $(EXTRA_DEPS) $(OBJECT_LIBBPF)
 	$(CLANG) -S \
 	    -target bpf \
 	    -D __BPF_TRACING__ \
