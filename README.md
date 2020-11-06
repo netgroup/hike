@@ -1,8 +1,8 @@
-## Hybrid Kernel/eBPF forwarding (HIKE) Linux implementation
+## HIKE - Hybrid Kernel/eBPF forwarding for Linux
 
 ### The source code is available in the master branch. 
 
-[Project web page](https://netgroup.github.io/hike/), part of the [ROSE](https://netgroup.github.io/rose/) project.
+[HIKE web page](https://netgroup.github.io/hike/), part of the [ROSE](https://netgroup.github.io/rose/) project.
 
 The Hybrid Kernel/eBPF forwarding (HIKE) Linux implementation consists in one patch:
  
