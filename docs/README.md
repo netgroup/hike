@@ -1,6 +1,6 @@
-Segment Routing with IPv6 (SRv6) is a leading Hybrid SDN (HSDN) architecture, as it fully exploits standard IP routing and forwarding both in the control plane and in the data plane. We designed and evaluated an efficient Linux software router in an HSDN/SRv6 architecture based on a programmable data plane architecture called HybrId Kernel/eBPF forwarding (HIKE). The HIKE architecture highlights the need for integrating the packet forwarding and processing based on the standard Linux kernel networking with the ones based on custom designed eBPF programs in order to speed up performance of SRv6 software routers.
+Segment Routing with IPv6 (SRv6) is a leading Hybrid SDN (HSDN) architecture, as it fully exploits standard IP routing and forwarding both in the control plane and in the data plane. We designed and evaluated an efficient Linux software router in an HSDN/SRv6 architecture based on a programmable data plane architecture called HybrId Kernel/eBPF forwarding (HIKE). The HIKE architecture integrates the packet forwarding and processing based on the standard Linux kernel networking with the ones based on custom designed eBPF programs in order to speed up performance of SRv6 software routers.
 
-More details about the overall HIKE architecture can be found [here](#reference) where we leveraged it for supporting SRv6 Networking and Performance Monitoring  with significant increase in performance with respect to conventional Linux networking stack based solutions.
+More details about the overall HIKE architecture can be found [here](#reference) where we leveraged it for supporting SRv6 Networking and Performance Monitoring with significant increase in performance with respect to conventional Linux networking stack based solutions.
 
 In the context of the [ROSE](https://netgroup.github.io/rose/) project, [we](#hike-linux-implementation-team) have 
 implemented Hybrid Kernel/eBPF forwarding (HIKE) in Linux.
@@ -72,8 +72,8 @@ To generate VPN traffic, please go into node `h1` and ping the `h2` node. Privat
 ### Reference
 
 A. Mayer, P. Loreti, L. Bracciale, P. Lungaroni, S. Salsano, C. Filsfils,
-["Performance Monitoring with H<sup>2</sup>: Hybrid Kernel/eBPF data plane for SRv6 based Hybrid SDN"](http://netgroup.uniroma2.it/Stefano_Salsano/papers/20-srv6-hybrid-sdn-hike.pdf),
-Submitted paper under evaluation. 
+["Performance Monitoring with H^2: Hybrid Kernel/eBPF data plane for SRv6 based Hybrid SDN"](https://www.sciencedirect.com/science/article/abs/pii/S1389128620313037),
+Elsevier Computer Networks, Volume 185, 11 February 2021, 107705. 
 
 ### HIKE Linux implementation Team
 
