@@ -70,7 +70,7 @@ To generate VPN traffic, please go into node `h1` and ping the `h2` node. Privat
 
 ### Scientific papers
 
-A. Mayer, P. Loreti, L. Bracciale, P. Lungaroni, S. Salsano, C. Filsfils,<br>
+- A. Mayer, P. Loreti, L. Bracciale, P. Lungaroni, S. Salsano, C. Filsfils,<br>
 ["Performance Monitoring with H^2: Hybrid Kernel/eBPF data plane for SRv6 based Hybrid SDN"](https://doi.org/10.1016/j.comnet.2020.107705),<br>
 Elsevier Computer Networks, Volume 185, 11 February 2021 ([pdf-preprint](http://netgroup.uniroma2.it/Stefano_Salsano/papers/20-srv6-hybrid-sdn-hike.pdf))
 
