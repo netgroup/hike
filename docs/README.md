@@ -1,9 +1,8 @@
 Segment Routing with IPv6 (SRv6) is a leading Hybrid SDN (HSDN) architecture, as it fully exploits standard IP routing and forwarding both in the control plane and in the data plane. We designed and evaluated an efficient Linux software router in an HSDN/SRv6 architecture based on a programmable data plane architecture called HybrId Kernel/eBPF forwarding (HIKE). The HIKE architecture integrates the packet forwarding and processing based on the standard Linux kernel networking with the ones based on custom designed eBPF programs in order to speed up performance of SRv6 software routers.
 
-More details about the overall HIKE architecture can be found [here](#reference) where we leveraged it for supporting SRv6 Networking and Performance Monitoring with significant increase in performance with respect to conventional Linux networking stack based solutions.
+More details about the overall HIKE architecture can be found [here](#scientific-papers). In the paper ["Performance Monitoring with H^2: Hybrid Kernel/eBPF data plane for SRv6 based Hybrid SDN"](http://netgroup.uniroma2.it/Stefano_Salsano/papers/20-srv6-hybrid-sdn-hike.pdf) we leveraged HIke for supporting SRv6 Networking and Performance Monitoring with significant increase in performance with respect to conventional Linux networking stack based solutions.
 
-In the context of the [ROSE](https://netgroup.github.io/rose/) project, [we](#hike-linux-implementation-team) have 
-implemented Hybrid Kernel/eBPF forwarding (HIKE) in Linux.
+[We](#hike-linux-implementation-team) have designed and implemented HIKE in the context of the [ROSE](https://netgroup.github.io/rose/) project.
 
 ### HIKE Linux implementation source code
 
@@ -69,7 +68,7 @@ To generate VPN traffic, please go into node `h1` and ping the `h2` node. Privat
   64 bytes from cafe::2: icmp_seq=1 ttl=63 time=0.585 ms
 ```
 
-### Reference
+### Scientific papers
 
 A. Mayer, P. Loreti, L. Bracciale, P. Lungaroni, S. Salsano, C. Filsfils,<br>
 ["Performance Monitoring with H^2: Hybrid Kernel/eBPF data plane for SRv6 based Hybrid SDN"](https://doi.org/10.1016/j.comnet.2020.107705),<br>
