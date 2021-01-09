@@ -1,5 +1,19 @@
 Segment Routing with IPv6 (SRv6) is a leading Hybrid SDN (HSDN) architecture, as it fully exploits standard IP routing and forwarding both in the control plane and in the data plane. We designed and evaluated an efficient Linux software router in an HSDN/SRv6 architecture based on a programmable data plane architecture called HybrId Kernel eBPF forwarding (HIKe). The HIKe architecture integrates the packet forwarding and processing based on the standard Linux kernel networking with the ones based on custom designed eBPF programs in order to speed up performance of SRv6 software routers.
 
+<!--- https://docs.google.com/presentation/d/1PUGmOcU3TbbwTyjui-eEs-KebZYMEcGKWrtTcB-KkAs/edit#slide=id.gab9a7d808b_0_27 --->
+<!--- ![eclat-hike-architecture.png](<./images/hike-architecture.png>) --->
+
+<div align="center">
+<table>
+<thead><tr>
+<th>Architectural overview of HIKe</th>
+</tr></thead>
+<tbody><tr>
+<td><img src="./images/hike-architecture.png" width="400" style="max-width:100%;"></td>
+</tr></tbody>
+</table>
+</div>
+
 More details about the overall HIKe architecture can be found [here](#scientific-papers). In the paper ["Performance Monitoring with H^2: Hybrid Kernel/eBPF data plane for SRv6 based Hybrid SDN"](http://netgroup.uniroma2.it/Stefano_Salsano/papers/20-srv6-hybrid-sdn-hike.pdf) we leveraged HIKe for supporting SRv6 Networking and Performance Monitoring with significant increase in performance with respect to conventional Linux networking stack based solutions.
 
 [We](#hike-linux-implementation-team) have designed and implemented HIKe in the context of the [ROSE](https://netgroup.github.io/rose/) project.
