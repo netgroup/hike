@@ -14,7 +14,8 @@ HIKe is a programmable data plane architecture that offers the dynamic composabi
 </table>
 </div>
 
-HIKe is used by the [eCLAT framework](https://netgroup.github.io/eclat/), which provides a high level abstraction and a programming framework to easily compose and deploy HIKe chains.
+<!--- 
+HIKe is used by the [eCLAT framework](https://netgroup.github.io/eclat/), which provides a high level abstraction and a programming framework to easily compose and deploy HIKe chains. --->
 
 More details about the overall HIKe architecture can be found [here](#scientific-papers). In the paper ["Performance Monitoring with H^2: Hybrid Kernel/eBPF data plane for SRv6 based Hybrid SDN"](http://netgroup.uniroma2.it/Stefano_Salsano/papers/20-srv6-hybrid-sdn-hike.pdf) we leveraged HIKe for supporting SRv6 Networking and Performance Monitoring with significant increase in performance with respect to conventional Linux networking stack based solutions.
 
